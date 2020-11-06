@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" onchange="readFile(this)">
+    <hr>
+    <div id="box"></div>
+    <script>
+    function readFile(input) {
+        let file = input.files[0];
+        let reader = new FileReader(); // 파일읽기 객체
+        reader.readAsText(file,"UTF-8"); // text로 읽어라
+        reader.onload = function() { // 읽기 성공시 함수
+            document.querySelector("#box").innerText = reader.result; 
+        };
+        reader.onerror = function() { // 읽기 실패시 함수
+            document.querySelector("#box").innerText = reader.error; 
+        };
+    }
+    </script>
+</body>
+</html>

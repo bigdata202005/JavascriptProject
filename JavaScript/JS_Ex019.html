@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 함수
+        // 함수 내에서는 외부변수를 마음대로 사용 가능하다!!!
+        let userName = 'John';
+        function showMessage() {
+            userName = "Bob"; // (1) 외부 변수를 수정함
+            let message = 'Hello, ' + userName;
+            document.writeln(message + "<br>");
+        }
+        document.writeln(userName + "<br>"); 
+        showMessage();
+        document.writeln(userName + "<br>");
+
+        // 인수가 기본값을 가질수 있다.
+        function fn1(x,y,z){
+            document.writeln(x,y,z,"<br>");
+        }
+        fn1(1, 2, 3); // 123
+        fn1(1,2);     // 12undefined
+
+        function fn2(x,y=0,z=0){
+            document.writeln(x,y,z,"<br>");
+        }
+        fn2(1, 2, 3); // 123
+        fn2(1);       // 100
+        fn2(1,2);     // 120
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

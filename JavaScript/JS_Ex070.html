@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // insertAdjacentHTML/Text/Element
+        // 또 다른 다재다능한 메서드 elem.insertAdjacentHTML(where, html)를 사용하면 가능합니다.
+        // elem.insertAdjacentHTML(where, html)에서 첫 번째 매개변수는 elem을 기준으로 하는 상대 위치로, 
+        // 다음 값 중 하나여야 합니다.
+
+        // 'beforebegin' – elem 바로 앞에 html을 삽입합니다.
+        // 'afterbegin' – elem의 첫 번째 자식 요소 바로 앞에 html을 삽입합니다.
+        // 'beforeend' – elem의 마지막 자식 요소 바로 다음에 html을 삽입합니다.
+        // 'afterend' – elem 바로 다음에 html을 삽입합니다.
+        // 두 번째 매개변수는 HTML 문자열로, 이 HTML은 이스케이프 처리되지 않고 ‘그대로’ 삽입됩니다.
+        window.onload = function () {
+            // 위아래
+            div.insertAdjacentHTML('beforebegin', '<p>안녕하세요.</p>');
+            div.insertAdjacentHTML('afterend', '<p>안녕히 가세요.</p>');
+            // 자식
+            document.body.insertAdjacentHTML("afterbegin", `<div class="alert">
+                        <strong>안녕하세요!</strong> 중요 메시지를 확인하셨습니다.
+                        </div>`);
+            document.body.insertAdjacentHTML("afterend", `<div class="alert">
+                        <strong>안녕하세요!</strong> 중요 메시지를 확인하셨습니다.
+                        </div>`);
+        }
+    </script>
+    <style>
+        .alert {
+            padding: 15px;
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            color: #3c763d;
+            background-color: #dff0d8;
+        }
+        div{ background-color: silver;border: 1px solid gray;padding: 5px;margin: 5px;}
+    </style>
+</head>
+<body>
+    <div id="div">나는 DIV입니다.</div>
+</body>
+</html>

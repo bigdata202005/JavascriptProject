@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            // document.writeln 사용시 주의 할점!!!!
+            // 2초후에 내용을 추가하면 기본의 내용이 모두 사라진다.
+            setTimeout(()=> document.writeln("새롭게 추가했습니다."), 2000);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>하하하하하 나는 어떻게 될까요?</h1>
+    <script>
+        document.writeln("document.writeln로 즉시 내용 추가!!!!");
+    </script>
+    <h1>하하하하하 나는 어떻게 될까요?</h1>
+</body>
+
+</html>

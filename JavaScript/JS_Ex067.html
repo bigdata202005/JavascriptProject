@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            // 문서에서 data-widget-name이라는 속성을 가진 요소를 찾고, 해당 요소의 값을 읽는 코드를 작성해 보세요.
+            console.log(div.getAttribute('data-widget-name'));
+            console.log(div.dataset.widgetName);
+            console.log(div.innerHTML);
+            console.log(div.outerHTML);
+
+            // setting style for a single link
+            let link = document.querySelector('a');
+            link.style.color = 'orange';
+
+            // 외부 링크만 빨간색으로 바꿔라!!!!
+            let as = document.querySelectorAll("ul>li a");
+            for(let a of as){
+                console.log(a.href);
+                if(!a.href.startsWith('file:///')){
+                    a.style.color = 'red';
+                }
+                if (href.startsWith('http://internal.com')) continue;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div" data-widget-name="menu">Choose the genre</div>
+    <a name="list">the list</a>
+    <ul>
+        <li><a href="http://google.com">http://google.com</a></li>
+        <li><a href="/tutorial">/tutorial.html</a></li>
+        <li><a href="local/path">local/path</a></li>
+        <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+        <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+        <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+    </ul>
+</body>
+
+</html>

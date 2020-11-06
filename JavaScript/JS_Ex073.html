@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            let newLi = document.createElement('li');
+            newLi.innerHTML = 'Hello, world!';
+            list.appendChild(newLi); // appendChild : 자식으로 추가해라!!!
+            
+            let newLi2 = document.createElement('li');
+            newLi2.innerHTML = 'Hello, world2!';
+            list.insertBefore(newLi2, list.children[1]); // insertBefore : 누구의 앞에 넣어라
+
+            let newLi3 = document.createElement('li');
+            newLi3.innerHTML = 'Hello, world3!';
+            list.replaceChild(newLi3, list.children[2]); // replaceChild : 변경하기
+
+            let li = list.firstElementChild;
+            list.removeChild(li); // removeChild : 지워
+        }
+    </script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <ol id="list">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+      </ol>
+</body>
+
+</html>

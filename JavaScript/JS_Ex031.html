@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    // 함수 두 개로 동일한 객체 만들기
+    // new A()==new B()가 성립 가능한 함수 A와 B를 만드는 게 가능할까요?
+
+    // 두 함수가 모두 같은 객체를 리턴하게 하면 된다.
+    // return을 생략하면 자동으로 return this;가 삽입되어 다른 객체가 된다.
+    // 하지만 다른 객체를 리턴하면 return this;가 무시된다.
+    let obj = {};
+    function A(){
+        return obj;
+    }
+    function B(){
+        return obj;
+    }
+    document.writeln(new A()==new B(), "<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

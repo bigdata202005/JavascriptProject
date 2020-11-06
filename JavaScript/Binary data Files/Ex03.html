@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ArrayBuffer, binary arrays
+        // ArrayBuffer, Uint8Array, DataView, Blob, File, 등
+        // 속성들
+        let buffer = new ArrayBuffer(32);
+        let arr1 = new Uint16Array(buffer);
+        document.writeln(arr1, "<br>");
+        document.writeln(typeof arr1, " : ", arr1, "<br>")
+        document.writeln(arr1.buffer, "<br>"); // object ArrayBuffer
+        document.writeln(arr1.length, "<br>");
+        document.writeln(arr1.byteLength, "<br>");
+        document.writeln("<hr>");
+
+        let arr2 = new Uint32Array(arr1.buffer);
+        document.writeln(typeof arr2, " : ", arr2, "<br>")
+        document.writeln(arr2.length, "<br>");
+        document.writeln(arr2.byteLength, "<br>");
+        document.writeln("<hr>");
+        
+        // 오버플로우 발생
+        let uint8array = new Uint8Array(16);
+        let num = 256;
+        uint8array[0] = 256;
+        uint8array[1] = 257;
+        
+        document.writeln(num.toString(2), "<br>");
+        document.writeln(uint8array[0], "<br>"); // 0
+        document.writeln(uint8array[1], "<br>"); // 1
+        document.writeln("<hr>");
+        
+        // TypedArray 메서드
+        // map, slice, find, reduce
+        ar1 = uint8array.map(function(i){
+            return i+3;
+        });
+        document.writeln(typeof ar1, " : ", ar1, "<br>");
+        document.writeln("<hr>");
+        
+        ar2 = uint8array.slice(0,5);
+        document.writeln(typeof ar2, " : ", ar2, "<br>"); 
+        document.writeln("<hr>");
+        
+        ar3 = ar1.find(function(n){return  n%2==1});
+        document.writeln(typeof ar3, " : ", ar3, "<br>"); 
+        document.writeln("<hr>");
+        
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        document.writeln(ar1, "<br>"); 
+        document.writeln(ar1.reduce(reducer), "<br>"); 
+        document.writeln(ar1.reduce(reducer, 5), "<br><hr>"); 
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

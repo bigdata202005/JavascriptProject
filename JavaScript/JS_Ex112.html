@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            padding: 5px;
+            border: 1px solid gray;
+            background-color: silver;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            box.onmouseover=function(event){
+                this.style.backgroundColor = 'pink';
+            }
+            box.onmouseout=function(event){
+                this.style.backgroundColor = 'silver';
+            }
+            box.onmouseenter=function(event){
+                this.style.backgroundColor = 'blue';
+            }
+            box.onmouseleave=function(event){
+                this.style.backgroundColor = 'skyblue';
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box">마우스 포인터를 넣어보세요</div>
+</body>
+
+</html>

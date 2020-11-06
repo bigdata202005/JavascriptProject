@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function concat(arrays) {
+        let totalLength = arrays.reduce((acc, value) => acc + value.length, 0);
+        if (!arrays.length) return null;
+        let result = new Uint8Array(totalLength);
+        let length = 0;
+        for(let array of arrays) {
+            result.set(array, length);
+            length += array.length;
+        }
+        return result;
+    }
+    document.writeln(concat(["12,34"]), "<br>");
+    document.writeln(concat(["1,23,456,7891"],"<br><hr>"));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

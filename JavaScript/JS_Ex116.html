@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        // 폼 요소 탐색
+        window.onload = function(){
+            let data1 = document.forms.my.one.value; // form의 name속성과 요소의 name속성으로 접근
+            let data2 = document.forms[0].two.value; // form의 name이 없을 경우 사용
+            alert(data1 + "\n" + data2);
+            // radio버튼의 경우 이름이 같다. 이때는 각각 어떻게 접근할까요?
+            alert(document.forms[1].elements.age[0].checked);
+            // form에 id를 주고 fieldSet이 있을경우 접근
+            //alert(form.login);
+            //alert(form.userFields.elements.login);
+            alert(form.userFields.elements.login == form.login);
+        }
+    </script>
+</head>
+
+<body>
+    <form name="my">
+        <input name="one" value="1">
+        <input name="two" value="2">
+    </form>
+    <form>
+        <input type="radio" name="age" value="10" checked>
+        <input type="radio" name="age" value="20">
+    </form>
+    <form id="form">
+        <fieldset name="userFields">
+          <legend>info</legend>
+          <input name="login" type="text">
+        </fieldset>
+      </form>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트!!!</title>
+    <style>
+        a:link { color: black; text-decoration: none;}
+        a:visited { color: black;  text-decoration: none;}
+        a:hover { color: black; text-decoration: none; font-weight: bold; }
+        a:active { color: black;  text-decoration: none;}    
+    </style>
+    <script>
+        // 변수 선언
+        let tooltipElem;
+        window.onload = function () {
+            // event.preventDefault() : 브라우저 기본 동작 막기
+            // return false;
+        };
+    </script>
+</head>
+
+<body>
+    
+    <a href="http://www.naver.com" onclick="alert('네이버로 간다.');">네이버</a> <br>
+    <a href="http://www.naver.com" onclick="alert('네이버로 안간다.');event.preventDefault();">네이버</a> <br>
+    <a href="http://www.naver.com" onclick="alert('네이버로 안간다.');return false;">네이버</a> <br>
+    <a href="javascript:alert('하하');">눌러줘!!</a> <br>
+    <a href="#" onclick="alert('호호');">눌러줘!!</a> <br>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        fn2 = function(x){ // 변수에 대입이 가능하다.
+            console.log(x*x);
+        }
+        fn2(4);
+        alert(typeof(fn2));
+        alert(fn2); // 사용자 함수 : 소스보기
+        alert(alert);  // 내장함수 : 소스를 볼 수 없다. 
+
+        // 재정의
+        alert = function(x){
+            console.log(x);
+        };
+        // 이후는 콘솔에 출력해준다.
+        alert('나는 어떻게 될까요?');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

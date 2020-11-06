@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // 요소 얻기
+            let elem = document.getElementById('elem'); // id속성이 elem을 찾아라.
+            // 배경색 변경하기
+            elem.style.background = 'red';
+
+            document.querySelector("#elem2").style.background = 'skyblue';
+            // 아이디로 직접 접근이 가능하다.
+            elem3.style.background = 'green';
+            // id를 따서 만들어진 전역변수를 요소 접근 시 사용하지 마세요.
+            // id는 중복되면 안 됩니다.
+            // anyNode.getElementById가 아닌 document.getElementById
+            let elem3 = 123; // id변수 무시!!! 
+            alert(123);
+
+
+        }
+    </script>
+</head>
+<body>
+    <div id="elem">
+        <div id="elem-content">Element</div>
+    </div>
+    <div id="elem2">
+        <div id="elem-content">Element</div>
+    </div>
+    <div id="elem3">
+        <div id="elem-content">Element</div>
+    </div>
+</body>
+</html>

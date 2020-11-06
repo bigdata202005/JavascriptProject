@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트!!!</title>
+    <style>
+
+    </style>
+    <script>
+        // 객체 형태의 이벤트 핸들러 지정
+        let obj = {
+            handleEvent(event) {
+                alert(event.type + " 이벤트가 " + event.currentTarget + "에서 발생했습니다.");
+            }
+        };
+        let menu = {
+            handleEvent(event) {
+                switch (event.type) {
+                    case 'mousedown':
+                        elem2.value = "마우스 버튼을 눌렀습니다.";
+                        break;
+                    case 'mouseup':
+                        elem2.value += " 그리고 버튼을 뗐습니다.";
+                        break;
+                }
+            }
+        }
+        let menu2 = {
+            handleEvent(event) {
+                // mousedown -> onMousedown
+                let method = 'on' + event.type[0].toUpperCase() + event.type.slice(1);
+                this[method](event);
+            },
+            onMousedown() {
+                elem3.innerHTML = "마우스 버튼을 눌렀습니다.";
+            },
+            onMouseup() {
+                elem3.innerHTML += " 그리고 버튼을 뗐습니다.";
+            }
+        }
+
+        window.onload = function () {
+            elem1.addEventListener('click', obj);
+
+            elem2.addEventListener('mousedown', menu);
+            elem2.addEventListener('mouseup', menu);
+
+            elem3.addEventListener('mousedown', menu2);
+            elem3.addEventListener('mouseup', menu2);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <input id="elem1" type="button" value="클릭해 주세요 1">
+    <input id="elem2" type="button" value="클릭해 주세요 2">
+    <button id="elem3">클릭해주세요 3</button>
+</body>
+
+</html>

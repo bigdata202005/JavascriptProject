@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ArrayBuffer, binary arrays
+        // ArrayBuffer, Uint8Array, DataView, Blob, File, 등
+        /*
+        인수에는 5 가지 변형이 있습니다.
+        new TypedArray(buffer, [byteOffset], [length]);
+        new TypedArray(object);
+        new TypedArray(typedArray);
+        new TypedArray(length);
+        new TypedArray();
+        */        
+        let buffer = new ArrayBuffer(16);
+        let arr1 = new Uint16Array(buffer);
+        document.writeln(arr1, "<br>");
+        document.writeln(arr1.length, "<br>");
+        document.writeln(arr1.byteLength, "<br>");
+        document.writeln("<hr>");
+
+        ar = [1,256,257,258];
+        document.writeln(typeof ar, " : ", ar, "<br>")
+        let arr2 = new Uint16Array(ar);
+        document.writeln(typeof arr2, " : ", arr2, "<br>")
+        document.writeln(arr2.length, "<br>");
+        document.writeln(arr2.byteLength, "<br>");
+        document.writeln("<hr>");
+
+        // 오버플로우 발생
+        let arr3 = new Uint8Array(arr2);
+        document.writeln(typeof arr3, " : ",arr3, "<br>");
+        document.writeln(arr3.length, "<br>");
+        document.writeln(arr3.byteLength, "<br>");
+        document.writeln("<hr>");
+
+        // 개수
+        let arr4 = new Uint8Array(4);
+        document.writeln(typeof arr4, " : ",arr4, "<br>");
+        document.writeln(arr4.length, "<br>");
+        document.writeln(arr4.byteLength, "<br>");
+        document.writeln("<hr>");
+
+        // 개수가 0인 
+        let arr5 = new Uint32Array();
+        document.writeln(arr5, "<br>");
+        document.writeln(arr5.length, "<br>");
+        document.writeln(arr5.byteLength, "<br>");
+        document.writeln("<hr>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <form id="form" action="/">
+        <input type="text" name="login"> <br>
+        <textarea name="content">나는 내용입니다.</textarea> <br>
+        <label>남자 <input type="radio" name="gender"></label>
+        <label>여자 <input type="radio" name="gender"></label> <br>
+        <label>술 <input type="checkbox" name="hobby"></label>
+        <label>잠 <input type="checkbox" name="hobby"></label> 
+        <label>춤 <input type="checkbox" name="hobby"></label> <br>
+        <button onclick="getValue()">값얻기 1</button> <!-- submit이 일어난다. -->
+        <input type="button" onclick="getValue()" value="값얻기 2"><!-- submit이 안일어난다. -->
+    </form>
+      
+    <script>
+        // 폼 요소 탐색 
+        // let  login = form.login; // input
+        // 역 탐색
+        // alert(login.form + "\n" + login.form.id);  // form
+
+        function getValue(){
+           // form.login.value = '하하하하';
+           // alert(form.login.value);
+           
+           // textarea의 값을 얻을떄 반드시 value를 써라
+           // form.content.value += '하하하하하';
+           // alert(form.content.value);
+           // 왜? innerHTML은 최초의 값만 얻을 수 있다.
+           // alert(form.content.innerHTML + "\n" + form.content.value);
+
+           // radio값 얻기
+           // alert(form.gender.value + "\n") // value값을 주지 않으면 둘다 on이 나옴
+           // form.gender[0].value = '남';
+           // form.gender[1].value = '여';
+           // 선택된 놈의 value값을 가져온다. checked로 선택 여부를 판단한다.
+           // alert(form.gender.value + "\n" + form.gender[0].checked + "\n" + form.gender[1].checked) 
+
+            // checkbox값 얻기
+            // alert(form.hobby.value); // value속성이 없으면 아무값도 나오지 않는다.
+            form.hobby[0].value = '술'; 
+            form.hobby[1].value = '잠'; 
+            form.hobby[2].value = '춤'; 
+            // alert(form.hobby.value); // name속성이 모두 같아서 아무값도 못가져온다.
+            // alert(form.hobby[0].value); // 선택 여부와 상관없이 값 가져온다.
+
+            // 선택된 취미들의 값을 얻으려면 어떻게 해야 할까요?
+            let result = "";
+            for(let hobby of form.hobby){
+                if(hobby.checked){
+                    result += hobby.value + " ";
+                }
+            }
+            alert(result);
+        }
+    </script>
+</body>
+</html>

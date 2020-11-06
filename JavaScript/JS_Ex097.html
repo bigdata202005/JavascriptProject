@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트위임</title>
+    <style>
+    </style>
+    <script>
+        class Menu {
+            constructor(elem) {
+                this._elem = elem;
+                elem.onclick = this.onClick.bind(this); // 클릭하면 onClick함수가 호출되고 클릭한 이벤트가 넘어간다.
+            }
+            save() {
+                alert('저장하기');
+            }
+            load() {
+                alert('불러오기');
+            }
+            search() {
+                alert('검색하기');
+            }
+            delete() {
+                alert('삭제하기');
+            }
+            onClick(event) {
+                let action = event.target.dataset.action; // 눌린 노드의 data-action값을 얻기
+                if (action) { // 존재하면
+                    this[action](); // 액션의 이름의 함수 실행
+                }
+            };
+        }
+        window.onload = function () {
+            new Menu(menu);
+            deleteBtn.onclick = function(){
+                alert(this.innerHTML);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="menu">
+        <button data-action="save">저장하기</button>
+        <button data-action="load">불러오기</button>
+        <button data-action="search">검색하기</button>
+        <button data-action="delete">삭제하기</button>
+    </div>
+    <button id="deleteBtn">삭제</button>
+</body>
+
+</html>

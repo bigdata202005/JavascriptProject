@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // prompt로 항목을 입력받아 list를 완성해라.
+            // 취소 또는 내용이 없으면 종료!!!
+            let list = "<ol>";
+            while(true){
+                content = prompt("항목입력", "");
+                if(content==null || content=="") break;
+                list += "<li>" + content + "</li>";
+            }
+            list += "</ol>";
+            document.body.innerHTML = list;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

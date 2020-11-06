@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <title>Document</title>
+  <meta charSet='UTF-8'>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2.22.1/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2.22.1/locale/ko.js"></script>
+  <script type="text/javascript">
+  <!--
+	var time1 = "2017-02-01T12:25:00Z"
+	var time2 = "2017-02-04T12:20:00Z"
+	function dateFromISO(isostr) {
+		var parts = isostr.match(/\d+/g);
+		return new Date(parts[0], parts[1] - 1, parts[2], parts[3], parts[4], parts[5]);
+	};
+
+	document.write("<hr>");
+	document.write("문자열에서 날짜데이터 구하기");
+	document.write("<br><hr>");
+	document.write(time1 + "<br>");
+	var parts = time1.match(/\d+/g);
+	for(var i in parts){
+		document.write(parts[i] + "<br>");
+	}
+
+	document.write("<hr>");
+	document.write("일반날짜 사용하여 시간 간격구하기");
+	document.write("<br><hr>");
+	var ParsedTime1= dateFromISO(time1);
+	var ParsedTime2= dateFromISO(time2);
+	var timeDifference = ParsedTime2-ParsedTime1 ;  // 출력 단위 밀리초(ms)
+
+	document.write(ParsedTime1 + "<br>");
+	document.write(ParsedTime2 + "<br>");
+	document.write("ParsedTime2-ParsedTime1<br>");
+	document.write(timeDifference + "<br>");
+
+	document.write("<hr>");
+	document.write("moment 사용하여 시간 간격구하기");
+	document.write("<br><hr>");
+	var ms = moment(time2,"YYYY-MM-DDTHH:mm:ssZ").diff(moment(time1,"YYYY-MM-DDTHH:mm:ssZ"));
+	// 출력 단위 밀리초(ms)
+	document.write("moment(time2,'YYYY-MM-DDTHH:mm:ssZ').diff(moment(time1,'YYYY-MM-DDTHH:mm:ssZ')<br>");
+	document.write(ms + "<br>");
+  //-->
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

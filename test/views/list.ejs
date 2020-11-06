@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul> 회원들....
+        <% rows.forEach(function(member){ %>
+        <li><%=member.userid%>(<%=member.PASSWORD%>, <%=member.username%>)</li>
+        <% }); %>
+    </ul>
+    <a href="/">메인화면으로.....</a>
+</body>
+
+</html>

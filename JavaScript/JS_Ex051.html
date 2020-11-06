@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 이 부분이 실행될 시점에는 body태그가 생성되지 않아서 에러다.
+        // document.body.style.color = 'green';
+        window.onload = function(){
+            document.body.style.backgroundColor = 'gray';
+            document.body.style.fontSize = '16pt';
+        }
+    </script>
+</head>
+<body>
+    <script>
+        document.body.style.color = 'green';
+    </script>
+    <table>
+        <tr>
+            <td>001</td>
+            <td>002</td>
+            <td>003</td>
+            <td>004</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>002</td>
+            <td>003</td>
+            <td>004</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>002</td>
+            <td>003</td>
+            <td>004</td>
+        </tr>
+    </table>            
+</body>
+
+</html>

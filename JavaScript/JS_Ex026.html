@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    // 참조에 의한 객체 복사
+    // 객체와 원시 타입의 근본적인 차이 중 하나는 객체는 ‘참조에 의해(by reference)’ 저장되고 복사된다는 것입니다.
+    let message = "Hello!";
+    let phrase = message;
+    document.writeln(message + "<br>");    
+    document.writeln(phrase + "<br>");    
+    message = "World!!";
+    document.writeln(message + "<br>");    
+    document.writeln(phrase + "<br>");    
+    user = {name:"Hello"};
+    let admin = user; // 참조값을 복사함
+    document.writeln(user.name + "<br>");    
+    document.writeln(admin.name + "<br>");
+    admin.age = 32; 
+    admin.name = "World!!!";
+    document.writeln(JSON.stringify(user) + "<br>");    // JSON.stringify() : JSON자료를 문자열로 만든다.
+    document.writeln(JSON.stringify(admin) + "<br>");
+
+    // 객체의 비교
+    document.writeln(user == admin, "<br>");
+    document.writeln(user === admin, "<br>");
+    
+    let a ={name:'kimc'};
+    // 얕은 복사 : 주소가 복시
+    let b=a;
+    let c={name:'kimc'}; // 새로운 객체가 생긴다.
+    document.writeln(JSON.stringify(a), "<br>");
+    document.writeln(JSON.stringify(b), "<br>");
+    document.writeln(JSON.stringify(c), "<br>");
+    document.writeln(a == b, "<br>");
+    document.writeln(a == c, "<br>"); // false
+    
+    // 깊은복사 : 내용이 복사
+    let user1 = {
+        name: "John",
+        age: 30
+    };
+    let clone = {}; // 새로운 빈 객체
+    document.writeln(JSON.stringify(user1), "<br>");
+    document.writeln(JSON.stringify(clone), "<br>");    
+    for(let key in user ){ // 값복사
+        clone[key] = user[key];
+    }
+    document.writeln(JSON.stringify(user1), "<br>");
+    document.writeln(JSON.stringify(clone), "<br>");    
+    user1.age = 33;
+    document.writeln(JSON.stringify(user1), "<br>"); // user1만 변경
+    document.writeln(JSON.stringify(clone), "<br>");    
+    
+    // 깊은 복사를 하는 다른방법
+    //  Object.assign(대상, 복사할 객체, 복사할 객체, ....);
+    let user2 = { name: "John" };
+    let permissions1 = { canView: true };
+    let permissions2 = { canEdit: true };
+    document.writeln(JSON.stringify(user2), "<br>");
+    // permissions1과 permissions2의 프로퍼티를 user로 복사합니다.
+    Object.assign(user2, permissions1, permissions2);
+
+    document.writeln(JSON.stringify(permissions1), "<br>");
+    document.writeln(JSON.stringify(permissions2), "<br>");
+    document.writeln(JSON.stringify(user2), "<br>");
+    permissions1 = { canView: false };
+    permissions2 = { canEdit: false };
+    document.writeln(JSON.stringify(permissions1), "<br>");
+    document.writeln(JSON.stringify(permissions2), "<br>");
+    document.writeln(JSON.stringify(user2), "<br><hr>");
+    
+    // Object.assign을 이용한 깊은복사
+    clone = Object.assign({}, user2);
+    document.writeln(JSON.stringify(user2), "<br>");
+    document.writeln(JSON.stringify(clone), "<br>");
+    clone.name = 'Leec'
+    document.writeln(JSON.stringify(user2), "<br>");
+    document.writeln(JSON.stringify(clone), "<br><hr>");
+
+    // 중첩객체의 복사
+    let user3 = {
+        name: "John",
+        // 이놈이 중첩객체이다.
+        sizes: {
+            height: 182,
+            width: 50
+        }
+    };
+    clone = Object.assign({}, user3); // 과연 깊은 복사가 되었을까?
+    document.writeln(user3.sizes.height, "<br>");
+    document.writeln(JSON.stringify(user3), "<br>");
+    document.writeln(JSON.stringify(clone), "<br>");
+    document.writeln(user3==clone, "<br>"); // false : 외부 객체는 깊은복사
+    document.writeln(user3.sizes==clone.sizes, "<br>"); // true : 내부객체는 얕은 복사
+    user3.sizes.width = 60; // 내부 객체 내용을 변경
+    document.writeln(JSON.stringify(user3), "<br>");
+    document.writeln(JSON.stringify(clone), "<br>"); // 둘다 변경
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

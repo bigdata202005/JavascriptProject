@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            alert(document.body.style.color); // 빈 문자열
+            alert(document.body.style.marginTop); // 20px
+
+            let computedStyle = getComputedStyle(document.body);
+
+            // 이제 마진과 색 정보를 얻을 수 있습니다.
+            alert(computedStyle.marginTop); // 5px
+            alert(computedStyle.color); // rgb(255, 0, 0)
+
+        }
+    </script>
+    <style>
+        body {
+            color: red;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    붉은 글씨
+</body>
+
+</html>

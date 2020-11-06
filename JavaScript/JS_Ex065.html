@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            // console.log(div.data-about); // Error!!!
+            console.log(div['data-about']); // undefined
+            console.log(div.getAttribute('data-about'));
+            console.log(div.dataset.about);
+            // 속성의 이름이 data-로 시작되면 set을 붙이고 .(Dot)연산자로 표현이 가능하다.
+            console.log(div2.getAttribute('data-order-state'));
+            console.log(div2.dataset.orderState);
+
+
+        }
+    </script>
+    <style>
+        div {
+            padding: 5px;
+            border: 1px solid gray;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div" data-about="Elephants"></div>
+    <div id="div2" data-order-state="Elephants2"></div>
+</body>
+
+</html>

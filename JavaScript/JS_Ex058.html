@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // getElementsBy*
+        // 태그나 클래스 등을 이용해 원하는 노드를 찾아주는 메서드도 있습니다.
+        // querySelector를 이용하는 게 더 편리하고 문법도 짧아서, 요즘은 이런 메서드들을 잘 쓰진 않습니다.
+        // elem.getElementsByTagName(tag) – 주어진 태그에 해당하는 요소를 찾고, 대응하는 요소를 담은 컬렉션을 반환합니다. 매개변수 tag에 "*"이 들어가면, '모든 태그’가 검색됩니다.
+        // elem.getElementsByClassName(className) – class 속성값을 기준으로 요소를 찾고, 대응하는 요소를 담은 컬렉션을 반환합니다.
+        // document.getElementsByName(name) – 아주 드물게 쓰이는 메서드로, 문서 전체를 대상으로 검색을 수행합니다. 
+        //                                    검색 기준은 name 속성값이고, 이 메서드 역시 검색 결과를 담은 컬렉션을 반환합니다.        
+        window.onload = function () {
+            let inputTag = document.getElementsByTagName("input");
+            for(let e of inputTag){
+                alert(e.value);
+            }
+
+            let articleClass = document.getElementsByClassName("article");
+            alert(articleClass.length);
+            alert(articleClass[1].innerHTML);
+
+        }
+    </script>
+</head>
+
+<body>
+    <form name="my-form">
+        <div class="article">글</div>
+        <div class="long article">내용이 긴 글</div>
+      </form>
+    <table id="table">
+        <tr>
+            <td>나이:</td>
+            <td>
+                <label>
+                    <input type="radio" name="age" value="young" checked> 18세 미만
+                </label>
+                <label>
+                    <input type="radio" name="age" value="mature"> 18세 이상, 60세 미만
+                </label>
+                <label>
+                    <input type="radio" name="age" value="senior"> 60세 이상
+                </label>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

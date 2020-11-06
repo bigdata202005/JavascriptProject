@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // string으로 부터 생성
+        let blob1 = new Blob(["<html>…</html>"], {type: 'text/html'});
+        document.writeln(typeof blob1, ":", blob1, "<br>");
+
+        // 바이너리 데이터로 부터 생성
+        let hello = new Uint8Array([72, 101, 108, 108, 111]); // "Hello" in binary form
+        let blob2 = new Blob([hello, ' ', 'world'], {type: 'text/plain'});
+        document.writeln(typeof blob2, ":", blob2, "<br>");
+ 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

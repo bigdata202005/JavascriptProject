@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>메인 페이지</title>
+</head>
+
+<body>
+    <h1> 홈페이지에 오신 것을 환영합니다. </h1>
+    <% if(member) {%>
+        <%=member.userid%>(<%=member.username%>)님 반갑습니다.
+        <br>
+        <button onclick='location.href="/logout"'>로그아웃</button>
+    <% } else { %>
+        <form method=post action='/loginOk'>
+            <h1> 로그인 페이지 </h1>
+            <p>ID : <input type=text name=id> </p>
+            <p>PASS : <input type=password name=password> </p>
+            <p><input type=submit value="login"></p>
+        </form>
+    <% } %>
+    <P><a href=/public/sign.html>회원가입 하기</a></p>
+    <p><a href=/public/findid.html>id 찾기</a></p>
+    <p><a href=/public/findpass.html>password 찾기</a></p>
+    <p><a href='/list'>회원 목록보기</a></p>
+</body>
+
+</html>

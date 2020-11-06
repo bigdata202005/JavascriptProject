@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트!!!</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 4px;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        th:hover {
+            background: yellow;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 여기에 코드를 입력하세요!!!
+            // 데이블 전체에 이벤트 지정 --- 이벤트 위임(행동패턴)
+            grid.addEventListener('click', function(event){
+                // data-type 속성이 있는 td를 클릭했을 때만 작동
+                if (event.target.dataset.type != undefined) {
+                    // data-type의 값을 얻기
+                    let type = event.target.dataset.type;
+                    // alert(type);
+                    let rows = Array.from(grid.tBodies[0].rows); // 테이블의 모든행을 배열로 작성
+                    if(type=='number'){
+                        // 나이로 정렬
+                        rows.sort(function(row1, row2){
+                            return row1.cells[0].innerHTML - row2.cells[0].innerHTML;
+                        });
+                    }else if(type=='string'){
+                        // 이름으로 정렬
+                        rows.sort(function(row1, row2){
+                            return row1.cells[1].innerHTML.localeCompare(row2.cells[1].innerHTML);
+                        });
+                    }
+                    // 정렬된 배열을 테이블에 넣기
+                    grid.tBodies[0].append(...rows);
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <table id="grid">
+        <thead>
+            <tr>
+                <th data-type="number">Age</th>
+                <th data-type="string">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>John</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Pete</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Ann</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Eugene</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ilya</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

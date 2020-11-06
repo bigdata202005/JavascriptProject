@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // DocumentFragment
+        // DocumentFragment는 특별한 DOM 노드 타입으로, 
+        // 여러 노드로 구성된 그룹을 감싸 다른 곳으로 전달하게 해주는 래퍼(wrapper)처럼 동작합니다.       
+        function getListContent() {
+            // DocumentFragment 생성
+            let fragment = new DocumentFragment();
+            // li세개 추가
+            for (let i = 1; i <= 3; i++) {
+                let li = document.createElement('li');
+                li.append(i + "번째 아이템!!!");
+                fragment.append(li);
+            }
+            return fragment; // 리턴
+        }
+        // 이렇게 배열을 리턴해도 된다.
+        function getListContent2() {
+            let result = []; // 배열 생성
+            for (let i = 1; i <= 3; i++) {
+                let li = document.createElement('li');
+                li.append(i + " 배열로 추가");
+                result.push(li); // 배열에 태그 추가
+            }
+            return result; // 배열을 리턴
+        }
+        window.onload = function () {
+            ul.append(getListContent()); // ul에 추가
+            // 직접 사용할것이라면 이렇게 해도 된다. DocumentFragment는 다른곳으로 전달할 경우에 사용
+            for (let i = 4; i <= 6; i++) {
+                let li = document.createElement('li');
+                li.append(i + "번째 아이템!!!");
+                ul.append(li);
+            }
+            // 배열로 추가시 ...을 사용한다.
+            ul.append(...getListContent2());
+        }
+    </script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <ul id="ul"></ul>
+</body>
+
+</html>

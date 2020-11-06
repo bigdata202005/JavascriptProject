@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <title>Document</title>
+  <meta charSet='UTF-8'>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2.22.1/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2.22.1/locale/ko.js"></script>
+  <script type="text/javascript">
+  <!--
+	var d= new Date(); 		 				 
+	var ISOData = d.toISOString();           
+	var ISODate = ISOData.split("T",1);      
+	document.write("<hr>");
+	document.write("일반날짜 사용");
+	document.write("<br><hr>");
+	document.write(d + "<br>");
+	document.write(ISOData + "<br>");
+	document.write(ISODate + "<br>");
+	document.write("<hr>");
+	document.write("moment 사용");
+	document.write("<br><hr>");
+	document.write(moment().format('MMMM Do YYYY, h:mm:ss a') + "<br>");
+	document.write(moment().format('dddd') + "<br>");
+	document.write(moment().format("MMM Do YY") + "<br>");
+	document.write(moment().format('YYYY [escaped] YYYY') + "<br>");
+	document.write(moment().format('YYYY[-]MM[-]DD') + "<br>");
+	document.write(moment().format('YYYY년 MM월 DD일 dddd (a) hh시 mm분 ss초 ') + "<br>");
+  //-->
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

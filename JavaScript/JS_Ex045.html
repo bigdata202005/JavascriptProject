@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getDate(){
+            let year = document.getElementById("year").value;
+            let month = document.getElementById("month").value;
+            // alert(year + "년 " + month + "월");
+            let date = new Date(year, month-1,1);
+            let week = date.getDay();
+            let content = "<tr>";
+            for(let i=0;i<week;i++) content += "<td>&nbsp;</td>";
+            let m = [31,28,31,30,31,30,31,31,30,31,30,31];
+            m[1] = year%400==0 || year%4==0 && year%100!=0 ? 29 : 28
+            let lastday = m[month-1];
+            for(let i=1;i<=lastday;i++){
+                content += "<td>" + i + "</td>";
+                date = new Date(year, month-1,i);
+                week = date.getDay();
+                console.log(i, " : ", week);
+                if(week == 6){
+                    console.log("~~~~~~~~~~~~~~~~~~~~~~~");
+                    content += "</tr><tr>";
+                }
+            }
+            for(let i=week;i<6;i++){
+                content += "<td>&nbsp;</td>";
+            } 
+            // alert(content);
+            document.getElementById("dates").innerHTML=content;
+        }
+        window.onload = function(){
+            getDate();
+        }
+    </script>
+</head>
+<body>
+    <table border="1" style='width:700px;margin: auto;'>
+        <tr>
+            <th colspan="7" style="font-size: 18pt;">
+                <select id="year" onchange="getDate()">
+                    <script>
+                        // 현재년도-10 ~ 현재연도+50까지
+                        let today = new Date();
+                        for(let i=today.getFullYear()-50;i<=today.getFullYear()+50;i++){
+                            if(i==today.getFullYear()){
+                                document.writeln("<option value='" + i + "' selected='selected'>" + i + "년</option>");
+                            }else{
+                                document.writeln("<option value='" + i + "'>" + i + "년</option>");
+                            }
+                        }
+                    </script>
+                </select>     
+                년도
+                <select id="month" onchange="getDate()">
+                    <script>
+                        for(let i=1;i<=12;i++){
+                            if(today.getMonth()+1==i)
+                                document.writeln("<option value='" + i + "'  selected='selected'>" + i + "월</option>");
+                            else
+                                document.writeln("<option value='" + i + "'>" + i + "월</option>");
+                        }
+                    </script>
+                </select>
+                월
+            </th>
+
+        </tr>
+        <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+        </tr>
+    </table>
+    <table border="1" style='width:700px;margin: auto;' id="dates"></table>    
+</body>   
+</html>

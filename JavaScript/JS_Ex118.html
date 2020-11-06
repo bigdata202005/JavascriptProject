@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <form id="form" action="/">
+        <select id="select" onchange="alert(this.value + '\n' + this.selectedIndex)">
+            <option value="apple">Apple</option>
+            <option value="pear">Pear</option>
+            <option value="banana">Banana</option>
+        </select>
+        <!-- multiple을 사용하면 다중 선택이 된다. 펼쳐져 보임(list)-->
+        <select id="select2" multiple>
+            <option value="blues" selected>Blues</option>
+            <option value="rock" selected>Rock</option>
+            <option value="classic">Classic</option>
+          </select>
+        <input type="button" onclick="getValue()" value="값얻기 2">
+    </form>
+
+    <script>
+         function getValue() {
+             // 3개의 요소가 있다.
+             let optionCount = select.options.length; // select.options : option의 배열
+             select.options[2].selected = true; // option 요소 선택
+             let value = select.value; // 값얻기
+             let index = select.selectedIndex; // 선택한 위치값 얻기
+             alert(optionCount + "\n" + value + "\n" + index);
+             // multiple일때 value는 선택된 놈들중에서 최초의 값만 가져온다.
+             // alert(select2.value);
+             let result="";
+             for(let option of select2.options){
+                if(option.selected){
+                    result += option.value + " ";
+                }
+            }
+            alert(result);
+        }
+    </script>
+</body>
+
+</html>

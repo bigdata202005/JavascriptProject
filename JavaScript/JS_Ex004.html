@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ; 의 사용!!! : 엔터로 구분하면 ; 유무와 상관없이 작동
+        document.writeln('한줄!!!')
+        document.writeln('두줄!!!')
+        document.writeln('한줄!!!');
+        document.writeln('두줄!!!');
+        
+        // 한줄에 여러개 명령을 쓰려면 반드시 ;을 붙여야 한다.
+        document.writeln('한줄!!!'); document.writeln('두줄!!!');
+
+        alert(3 +
+            1
+            + 2);
+        
+        document.writeln('<br/>');   
+        x = 10
+        y = 20
+        document.writeln(x, '&nbsp;', y, '<br/>'); // 10 20
+        x
+        ++
+        y
+        document.writeln(x, '&nbsp;', y, '<br/>'); // 10 21
+        /*
+        x    // 여기서 명령이 종료!!
+        ++;  // 연산 대상없이 연산자가 사용되어 에러!!!
+        y
+        document.writeln(x, '&nbsp;', y, '<br/>'); // 10 21
+        */
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

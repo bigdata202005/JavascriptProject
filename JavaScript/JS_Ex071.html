@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            document.body.insertAdjacentHTML("afterbegin", `<div class="alert" id="div2">
+                        <strong>안녕하세요!</strong> 중요 메시지를 확인하셨습니다.
+                        </div>`);
+            // 태그의 삭제 : node.remove();
+            setTimeout(() => div.remove(), 1000); // 1초 후에 div가 사라진다.
+            
+            // 이동시에는 remove 메서드를 호출할 필요가 없습니다.
+            // id가 second인 노드를 가져오고, 해당 노드의 뒤에 id가 first인 노드를 삽입
+            setTimeout(() => second.after(first), 2000); // 2초 후에 first와 second가 위치가 바뀐다.
+
+            // cloneNode로 노드 복제하기
+            // elem.cloneNode(true)을 호출하면 elem의 ‘깊은’ 복제본이 만들어집니다. 속성 전부와 자손 요소 전부가 복사됩니다. 
+            // elem.cloneNode(false)을 호출하면 후손 노드 복사 없이 elem만 복제됩니다          
+            let div3 = div2.cloneNode(true); // 메시지 창 복제
+            div3.querySelector('strong').innerHTML = '안녕히 가세요!'; // 복제한 메시지 창 내용 수정
+            second.after(div3); // 복제한 메시지 창을 기존 메시지 창 다음에 보여줌
+
+        }
+    </script>
+    <style>
+        .alert {
+            padding: 15px;
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            color: #3c763d;
+            background-color: #dff0d8;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">나는 DIV입니다.</div>
+    <div id="first">First</div>
+    <div id="second">Second</div>
+</body>
+</html>

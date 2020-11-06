@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트!!!</title>
+    <style>
+        .tree span:hover {
+            font-weight: bold;
+        }
+
+        .tree span {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 모든 li태그에 span을 달아준다.
+            for (let li of tree.querySelectorAll('li')) {
+                let span = document.createElement('span');
+                li.prepend(span);
+                span.append(span.nextSibling);
+            }
+            // 내용을 모두 포함하는 tree에 이벤트를 위임
+            tree.onclick = function (event) {
+                // 태그이름이 span이 아니라면 종료
+                if (event.target.tagName != 'SPAN') return;
+                // li의 부모에서 ul을 찾는다.
+                let childrenContainer = event.target.parentNode.querySelector('ul');
+                // 없으면 리턴
+                if (!childrenContainer) return; // no children
+                // 숨김 보이기 반전
+                childrenContainer.hidden = !childrenContainer.hidden;
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <ul class="tree" id="tree">
+        <li>Animals
+            <ul>
+                <li>Mammals
+                    <ul>
+                        <li>Cows</li>
+                        <li>Donkeys</li>
+                        <li>Dogs</li>
+                        <li>Tigers</li>
+                    </ul>
+                </li>
+                <li>Other
+                    <ul>
+                        <li>Snakes</li>
+                        <li>Birds</li>
+                        <li>Lizards</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Fishes
+            <ul>
+                <li>Aquarium
+                    <ul>
+                        <li>Guppy</li>
+                        <li>Angelfish</li>
+                    </ul>
+                </li>
+                <li>Sea
+                    <ul>
+                        <li>Sea trout</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+
+</html>

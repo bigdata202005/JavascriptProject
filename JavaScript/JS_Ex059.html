@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. id="age-table"인 테이블
+        // 2. 테이블 내의 label 요소 모두(총 3개)
+        // 3. 테이블 내의 첫 번째 td(Age가 적힌 곳)
+        // 4. name="search"인 form
+        // 5. 폼의 첫 번째 input
+        // 6. 폼의 마지막 input
+        window.onload = function () {
+            // 1번
+            document.querySelector("#age-table").style.border = '1px solid red';
+            document.getElementById("age-table").style.color = 'blue';
+            // 2번 
+            let labels = document.querySelectorAll("#age-list>label");
+            alert(labels.length + "개");
+            // 3번
+            let td = document.querySelector("table>tbody>tr>td");
+            alert(td.innerText);
+            // 4번 
+            let form = document.querySelector("form[name='search']");
+            alert(form.innerHTML);
+            // 5번
+            alert(document.querySelector("form>label>input").value);
+            // 6번
+            alert(document.querySelector("form>input").value);
+        }
+    </script>
+</head>
+
+<body>
+    <form name="search">
+        <label>Search the site:
+            <input type="text" name="search" value='하하하'>
+        </label>
+        <input type="submit" value="Search!!!!!">
+    </form>
+    <hr>
+
+    <form name="search-person">
+        Search the visitors:
+        <table id="age-table">
+            <tr>
+                <td>Age:</td>
+                <td id="age-list">
+                    <label>
+                        <input type="radio" name="age" value="young">less than 18</label>
+                    <label>
+                        <input type="radio" name="age" value="mature">18-50</label>
+                    <label>
+                        <input type="radio" name="age" value="senior">more than 50</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Additionally:</td>
+                <td>
+                    <input type="text" name="info[0]">
+                    <input type="text" name="info[1]">
+                    <input type="text" name="info[2]">
+                </td>
+            </tr>
+
+        </table>
+
+        <input type="submit" value="Search!">
+    </form>
+</body>
+
+</html>

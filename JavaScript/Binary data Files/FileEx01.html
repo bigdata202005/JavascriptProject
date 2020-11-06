@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="file" onchange="showFile(this)">
+<hr>
+<div id="result"></div>
+<script>
+function showFile(input) {
+  let file = input.files[0];
+
+  document.querySelector("div#result").innerHTML = `File name: ${file.name}`
+  document.querySelector("div").innerHTML += `<br>Last modified: ${file.lastModified}`
+  document.querySelector("div").innerHTML += `<br>Last modified: ${new Date(file.lastModified)}`
+}
+</script>
+</body>
+</html>

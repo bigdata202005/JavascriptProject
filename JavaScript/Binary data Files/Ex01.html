@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ArrayBuffer, binary arrays
+        // ArrayBuffer, Uint8Array, DataView, Blob, File, 등
+
+        // 16 바이트의 연속 메모리 영역을 할당하고 0으로 미리 채 웁니다.
+        let buffer1 = new ArrayBuffer(16); 
+        document.writeln("buffer.byteLength :", buffer1.byteLength, "<br>"); // 16
+        /*
+        ArrayBuffer 무언가의 배열이 아닙니다
+        ArrayBuffer와 Array는 공통점이 없습니다 .
+        ArrayBuffer메모리 영역입니다. 그 안에 무엇이 저장되어 있습니까? 단서가 없습니다. 원시 바이트 시퀀스입니다.
+        ArrayBuffer를 조작하려면 "view"객체를 사용해야합니다.
+        
+        Uint8Array  : 1바이트
+        Uint16Array : 2바이트
+        Uint32Array : 4바이트
+        Float64Array : 8바이트
+        */
+       let view1 = new Uint32Array(buffer1);
+       document.writeln("Uint32Array.BYTES_PER_ELEMENT : ", Uint32Array.BYTES_PER_ELEMENT, "<br>"); 
+       document.writeln("view.length : ", view1.length, "<br>");
+       document.writeln("view.byteLength : ", view1.byteLength, "<br>");
+       document.writeln("<hr>");
+       
+       view1[0] = 123456;
+       document.writeln(view1 , "<br>");
+       for(let num of view1) {
+           document.writeln(num , "<br>");
+        }
+        document.writeln("<hr>");
+        
+        let buffer2 = new ArrayBuffer(16); 
+        let view2 = new Uint8Array(buffer2);
+        view2[1] = 11;
+        document.writeln(view2 , "<br>");
+
+        let view3 = new Uint16Array(buffer2);
+        view3[1] = 11;
+        document.writeln(view3 , "<br>");
+        
+        let view4 = new Float64Array(buffer2);
+        view4[1] = 22;
+        document.writeln(view4 , "<br>");
+        document.writeln("<hr>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

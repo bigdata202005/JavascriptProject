@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트!!!</title>
+    <style>
+        #contents {
+            padding: 5px;
+            border: 1px green solid;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 사용자가 id가 contents인 요소 안에 있는 링크를 클릭했을 때 
+            // 정말 사이트를 떠나 해당 링크로 갈지를 물어보는 기능을 구현해봅시다. 
+            // 그리고 사용자가 사이트를 떠나지 않겠다고 하면, 사이트에 남아있어야 합니다.
+            contents.addEventListener('click', function(event){
+                // 부모중 제일 가까운 a태그를 찾아준다.
+                let target = event.target.closest('a');
+                if (target.tagName != 'A') return;
+                //alert(target.href);
+                if(confirm(target.href+'로 이동하시겠습니까?')){
+                    //alert('이동합니다.');
+                }else{
+                    event.preventDefault();
+                    //alert('이동하지 않겠습니다.');
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <fieldset id="contents">
+        <legend>#contents</legend>
+        <p>
+          How about to read <a href="https://wikipedia.org">Wikipedia</a> or visit 
+          <a href="https://w3.org"><i>W3.org</i></a> and learn about modern standards?
+        </p>
+      </fieldset>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+    <script>
+        function selectAll(){
+            for(let check of form.item){
+                check.checked = true;
+            }
+        }
+        function clearAll(){
+            for(let check of form.item){
+                check.checked = false;
+            }
+        }
+        function toggle(){
+            for(let check of form.item){
+                check.checked = !check.checked;
+            }
+        }
+        function selectCheck(obj){
+            if(obj.checked){
+                selectAll();
+            }else{
+                clearAll();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="selectAll()">모두선택</button>
+    <button onclick="clearAll()">모두해제</button>
+    <button onclick="toggle()">반전</button>
+    <label><input type="checkbox" onclick="selectCheck(this)">모두선택</label>
+    <br><hr>
+    <form id="form">
+        <label><input type="checkbox" name="item">아이템 1</label> <br>
+        <label><input type="checkbox" name="item">아이템 2</label> <br>
+        <label><input type="checkbox" name="item">아이템 3</label> <br>
+        <label><input type="checkbox" name="item">아이템 4</label> <br>
+        <label><input type="checkbox" name="item">아이템 5</label> <br>
+        <label><input type="checkbox" name="item">아이템 6</label> <br>
+        <label><input type="checkbox" name="item">아이템 7</label> <br>
+    </form>
+    
+</body>
+
+</html>

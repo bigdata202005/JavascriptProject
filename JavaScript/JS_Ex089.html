@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트!!!</title>
+    <style>
+
+    </style>
+    <script>
+        window.onload = function () {
+            elem1.addEventListener('click', () => {
+                // text.style.display = 'none';
+                text.hidden = true;
+            });
+            elem2.addEventListener('click', () => {
+                // text.style.display = 'block';
+                text.hidden = false;
+            });
+
+            button.addEventListener("click", () => alert("1"));
+            button.removeEventListener("click", () => alert("1")); // 이놈은 작동하지 않는다.
+            button.onclick = () => alert(2);
+            button.addEventListener("click", handler);
+            button.removeEventListener("click", handler); // 이놈은 작동한다.
+
+            button2.addEventListener("click", handler2); // 이벤트 지정
+            function handler() {
+                alert(3);
+            }
+            function handler2() {
+                alert('나는 한번만 실행됩니다.');
+                button2.removeEventListener("click", handler2); // 최초 실행시 이벤트 제거
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input id="elem1" type="button" value="아래의 텍스트 숨기기">
+    <input id="elem2" type="button" value="아래에 텍스트 보이기">
+    <div id="text" style="border: 1px solid gray;padding: 5px;margin: 5px;">나는 텍스트입니다.</div>
+    <button onclick="this.hidden=true;">누르면 사라진다.</button>
+    <button id='button'>눌러봐!!!!</button>
+    <button id='button2'>나는 한번만!!!</button>
+</body>
+
+</html>

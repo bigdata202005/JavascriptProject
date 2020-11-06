@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+ 
+    </script>
+</head>
+<body>
+    <a download="hello1.txt" href='#' id="link1">Download1</a>
+    <a download="hello2.txt" href='#' id="link2">Download2</a>
+
+    <script>
+    let blob1 = new Blob(["Hello, world!"], {type: 'text/plain'});
+    link1.href = URL.createObjectURL(blob1);
+    let blob2 = new Blob(["반갑습니다."], {type: 'text/plain'});
+    link2.href = URL.createObjectURL(blob2);
+    // 바로 다운로드됨
+    let link = document.createElement('a');
+    link.download = 'hello3.txt';
+    let blob3 = new Blob(['Hello, world!'], {type: 'text/plain'});
+    link.href = URL.createObjectURL(blob3);
+    link.click();
+    // revokeObjectURL : 생성한 기존 URL을 해제(폐기)합니다.
+    URL.revokeObjectURL(link.href);
+    </script>   
+</body>
+</html>

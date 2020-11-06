@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        DataView
+        DataView 는 모든 형식의 오프셋 데이터에 액세스 할 수 있습니다.
+
+        형식화 된 배열의 경우 생성자가 형식을 지정합니다. 
+        전체 배열은 균일해야합니다. i 번째 숫자는 arr[i]입니다.
+        구문 :
+        new DataView(buffer, [byteOffset], [byteLength])     
+        buffer– 기본 ArrayBuffer. DataView는 자체적으로 버퍼를 생성하지 않습니다. 
+        byteOffset –보기의 시작 바이트 위치 (기본값은 0).
+        byteLength– 뷰의 바이트 길이 (기본적으로 끝까지 buffer).   
+        */
+        let buffer = new Uint8Array([255, 255, 255, 255]).buffer;
+        let dataView = new DataView(buffer);
+        document.writeln( dataView.getUint8(0), "<br>" ); // 255        
+        document.writeln( dataView.getUint8(0).toString(2), "<br>" ); // 11111111        
+        document.writeln( dataView.getUint16(0), "<br>" ); // 65535        
+        document.writeln( dataView.getUint16(0).toString(2), "<br>" ); // 1111111111111111        
+        document.writeln( dataView.getUint32(0), "<br>" ); // 4294967295        
+        document.writeln( dataView.getUint32(0).toString(2), "<br>" ); // 11111111111111111111111111111111 
+        dataView.setUint32(0, 0);
+        document.writeln( dataView.getUint32(0), "<br>" ); // 0        
+        document.writeln( dataView.getUint32(0).toString(2), "<br>" ); // 0
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

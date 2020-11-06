@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버블링과 캡처링</title>
+    <style>
+       body * { margin: 5px; padding: 5px; border:1px solid gray; font-size: 16pt;}
+    </style>
+    <script>
+        window.onload = function () {
+
+        }
+    </script>
+</head>
+<body>
+    <div onclick="alert('div에 할당한 핸들러!')">
+        <em><code>EM</code>을 클릭했는데도 <code>DIV</code>에 할당한 핸들러가 동작합니다.</em>
+    </div>
+    <div onclick="alert(`버블링은 여기까지 도달하지 못합니다.`)">
+        <button onclick="event.stopPropagation()">클릭해 주세요.</button>
+    </div>
+</body>
+</html>

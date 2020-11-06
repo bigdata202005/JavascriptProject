@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            // 속성 및 메서드 추가
+            document.body.myData = { name: '부라우저', version: 3.5 };
+            document.body.viewData = function () {
+                console.log(this.myData.name);
+                console.log(this.myData.version);
+                console.log(this.tagName);
+            }
+            // 메서드 실행!!!
+            document.body.viewData();
+            // 모든 Element에 대하여 메서드 추가
+            Element.prototype.sayHi = function () {
+                console.log(`Hello, I'm ${this.tagName}`);
+            };
+            document.body.sayHi();
+            document.documentElement.sayHi();
+            // 비 표준형 속성은 추가되지 않는다.
+            console.log(document.body.id);
+            console.log(document.body.something); // 비 표준형 속성 : undefined
+            console.log(input.type);
+            console.log(div.type); // 비 표준형 속성 : undefined
+
+            // 비표준 속성에 접근하기
+            // elem.hasAttribute(name) – 속성 존재 여부 확인
+            // elem.getAttribute(name) – 속성값을 가져옴
+            // elem.setAttribute(name, value) – 속성값을 변경함
+            // elem.removeAttribute(name) – 속성값을 지움     
+                   
+            console.log(document.body.hasAttribute('something')); // 있는지 확인
+            console.log(document.body.getAttribute('something')); // 값얻기
+            document.body.setAttribute('something', '하하하하하하하'); // 변경
+            console.log(document.body.getAttribute('something'));
+            document.body.setAttribute('something2', '호호호호호'); // 추가
+            console.log(document.body.getAttribute('something2'));
+            document.body.removeAttribute('something2'); // 삭제
+            console.log(document.body.getAttribute('something2'));
+        }
+    </script>
+</head>
+
+<body id="test" something="non-standard">
+    <input id="input" type="text">
+    <div id="div" type="text"></div>
+</body>
+
+</html>

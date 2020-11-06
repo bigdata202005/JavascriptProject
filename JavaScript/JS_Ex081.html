@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = function () {
+            showBtn.onclick = function(){
+                div1.style.display = "block";
+            }
+            hideBtn.onclick = function(){
+                div1.style.display = "none";
+                // 속성 자체를 없앤다.
+                // div1.style.display = "";
+            }
+        }
+    </script>
+    <style>
+        .box { padding: 10px; margin: auto; width: 300px; border: 1px solid gray;background-color: silver; }
+    </style>
+</head>
+<body class="main page">
+    <div id="div1" class="box">나는 DIV입니다.</div>    
+    <button id="showBtn">보이기</button>
+    <button id="hideBtn">숨기기</button>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+    <script>
+        window.onload = function () {
+            let form = document.createElement('form'); // form태그 작성
+            form.action = 'https://google.com/search'; // 지정액션
+            form.method = 'GET'; // 전송방식 지정
+            form.innerHTML = '<input name="q" value="test">'; // 전송할 태그 삽입
+            document.body.append(form); // 폼을 body에 추가  
+            // form.submit(); // 전송
+        }
+        // 자바스크립트로 post전송하기
+        //                   경로, 데이터객체, 메서드
+        function post_to_url(path, params, method) {
+            method = method || "post"; // 전송 방식 기본값을 POST로
+            var form = document.createElement("form"); // form태그 작성
+            form.setAttribute("method", method); // 메서드 지정
+            form.setAttribute("action", path); // 전송할 주소 지정
+            //히든으로 값을 주입시킨다.
+            for (var key in params) { // 두번째 인수로 넘어온 json객체를 모두 input태그로 추가한다.
+                var hiddenField = document.createElement("input"); // input태그 작성
+                hiddenField.setAttribute("type", "hidden"); // 보일 필요가 없으므로 숨김속성을 추가
+                hiddenField.setAttribute("name", key); // json의 키를 name속성으로
+                hiddenField.setAttribute("value", params[key]); // json의 값을 value속성으로
+                form.appendChild(hiddenField); // 폼에 input태그 추가
+            }
+            document.body.appendChild(form); // 폼 전체를 body에 추가
+            form.submit(); // 폼전송
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="post_to_url('#',{'name':'kimc',age:23},'GET');">GET전송</button>
+    <button onclick="post_to_url('#',{'name':'kimc',age:23});">POST전송</button>
+</body>
+
+</html>

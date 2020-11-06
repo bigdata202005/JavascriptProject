@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // let html = document.querySelector('.my-element2').innerHTML; 
+            // alert(html); // TypeError: Cannot read property 'innerHTML' of null
+
+            let user = {};
+            document.writeln(user && user.address && user.address.street, "<br>");
+            document.writeln(user ?. address ?. street, "<br>");
+
+            let user2 = null;
+            document.writeln(user2, "<br>"); // null
+            document.writeln(user2?.address, "<br>");
+            document.writeln(user2?.street, "<br>");
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="my-element">하하하하</div>
+</body>   
+</html>

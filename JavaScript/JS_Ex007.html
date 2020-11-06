@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // alert, prompt, confirm을 이용한 상호작용
+        // alert : 경고창!!!
+        alert('안녕!!!');
+        // prompt : 입력창
+        let name = prompt('이름이 뭐니?','홍길동');
+        alert(`${name}씨 반갑습니다.`);
+
+        let exp = prompt('계산식 입력'); // 인수가 하나면 기본값이 표시되지 않는다.
+        alert(exp); // 입력의 기본 타입은 string타입이다.
+        alert(eval(exp)); // eval(문자열) : 문자열을 자바스크립트 식으로 변경해준다.
+
+        // confirm : 확인/취소 창
+        if(confirm('창을 닫겠습니까?')){
+            self.close();
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

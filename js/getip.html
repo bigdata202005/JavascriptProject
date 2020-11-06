@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <title>접속자 ip얻기</title>
+ </head>
+ <body>
+<script type="text/javascript" src="http://jsgetip.appspot.com"></script>
+<script type="text/javascript">
+function ipv(){
+    return -1!=ip().indexOf(":")?6:4
+};
+document.write("Your IP Address is " + ip() + " (IPv" + ipv() + ")<br>");
+</script>
+
+<script type="text/javascript">
+  var userip;
+</script>
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+<script type="text/javascript">
+  document.write("Your IP is :", userip);
+</script>
+ </body>
+</html>

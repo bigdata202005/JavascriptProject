@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 날짜 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ko.min.js"></script>    
+    <!-- 숫자 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script>
+        document.writeln(moment.locale());         // ko
+        document.writeln("<br>");
+        document.writeln(moment().format('LT'));   // 오전 10:05
+        document.writeln("<br>");
+        document.writeln(moment().format('LTS'));  // 오전 10:05:32
+        document.writeln("<br>");
+        document.writeln(moment().format('L'));    // 2020.10.30.
+        document.writeln("<br>");
+        document.writeln(moment().format('l'));    // 2020.10.30.
+        document.writeln("<br>");
+        document.writeln(moment().format('LL'));   // 2020년 10월 30일
+        document.writeln("<br>");
+        document.writeln(moment().format('ll'));   // 2020년 10월 30일
+        document.writeln("<br>");
+        document.writeln(moment().format('LLL'));  // 2020년 10월 30일 오전 10:05
+        document.writeln("<br>");
+        document.writeln(moment().format('lll'));  // 2020년 10월 30일 오전 10:05
+        document.writeln("<br>");
+        document.writeln(moment().format('LLLL')); // 2020년 10월 30일 금요일 오전 10:05
+        document.writeln("<br>");
+        document.writeln(moment().format('llll'));
+        document.writeln("<br>");
+        var string = numeral(1000).format('0,0');
+        document.writeln(string);
+        document.writeln("<br>");
+        var string = numeral(56789.56789).format('0,0.00');
+        document.writeln(string);
+        document.writeln("<br>");
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

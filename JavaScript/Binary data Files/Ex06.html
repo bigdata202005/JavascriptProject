@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    // 텍스트 디코더와 텍스트 인코더
+    // let decoder = new TextDecoder([label], [options]);
+    // 이진데이터를 디코딩 함
+    let uint8Array1 = new Uint8Array([72, 101, 108, 108, 111]);
+    document.writeln(new TextDecoder().decode(uint8Array1), "<br>" );  // Hello
+    let uint8Array2 = new Uint8Array([228, 189, 160, 229, 165, 189]);
+    document.writeln( new TextDecoder().decode(uint8Array2), "<br>" ); // 你好
+
+    let uint8Array3 = new Uint8Array([0, 72, 101, 108, 108, 111, 0]);
+    // 문자열을 나타내는 배열의 요소는 중간에 존재합니다.
+    // 배열의 복사 없이 문자열을 출력할 수 있습니다.
+    let binaryString = uint8Array3.subarray(1, -1);
+    document.writeln( new TextDecoder().decode(uint8Array3), "<br>" ); // Hello
+    
+    // 문자열을 인코딩함
+    // let encoder = new TextEncoder();
+    let encoder = new TextEncoder();
+    let uint8Array4 = encoder.encode("Hello");
+    document.writeln( uint8Array4, "<br>" ); // 72,101,108,108,111
+    let uint8Array5 = encoder.encode("안녕");
+    document.writeln( uint8Array5, "<br>" ); // 236,149,136,235,133,149
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
